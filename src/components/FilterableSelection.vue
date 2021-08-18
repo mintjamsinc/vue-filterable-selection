@@ -1,24 +1,24 @@
 <template>
-	<div class="position-relative flat-control flat-blue bordered rounded" :class="{'invalid': invalid}">
+	<div class="position-relative flat-control flat-blue bordered rounded text-small" :class="{'invalid': invalid}">
 		<div v-if="selected.index.length > 0" class="d-flex flex-wrap pl-2 pt-2">
 			<div v-for="id in selected.index" :key="id" class="mr-2 mb-2">
 				<Badge class="shadow-sm"
-					:authorizable="ui.getAuthorizable(selected.map[id])"
-					:item="ui.getItem(selected.map[id])"
-					:icon="ui.getIcon(selected.map[id])"
-					:label="ui.getLabel(selected.map[id])"
+					:authorizable="ui.$getAuthorizable(selected.map[id])"
+					:item="ui.$getItem(selected.map[id])"
+					:icon="ui.$getIcon(selected.map[id])"
+					:label="ui.$getLabel(selected.map[id])"
 					:maxLabelWidth="maxLabelWidth">
-					<span class="text-small text-white-50 text-shadow c-pointer" v-on:click="doUnselect(id)"><i class="fas fa-times"></i></span>
+					<span class="ml-2 text-small text-white-50 text-shadow c-pointer" v-on:click="doUnselect(id)"><i class="fas fa-times"></i></span>
 				</Badge>
 			</div>
 		</div>
 		<div v-if="showFilter" class="d-flex justify-content-between align-items-center position-relative w-100">
 			<input type="text" class="flex-grow-1 p-2 border-none outline-none" :class="{'text-shadow': filterText}" :placeholder="placeholder" name="filterText" v-model="filterText" v-on:keyup.enter.prevent.stop="doSearch" autocomplete="off">
 			<div class="d-flex justify-content-end align-items-center">
-				<div v-if="hasSearch" class="input-icon mr-2 text-small text-shadow c-pointer d-flex justify-content-center align-items-center" v-on:click.prevent.stop="doSearch">
+				<div v-if="hasSearch" class="input-icon mr-2 text-shadow c-pointer d-flex justify-content-center align-items-center" v-on:click.prevent.stop="doSearch">
 					<i class="fas fa-search"></i>
 				</div>
-				<div class="input-icon mr-2 text-small text-shadow c-pointer d-flex justify-content-center align-items-center" v-on:click.prevent.stop="isExpanded = !isExpanded">
+				<div class="input-icon mr-2 text-shadow c-pointer d-flex justify-content-center align-items-center" v-on:click.prevent.stop="isExpanded = !isExpanded">
 					<i v-if="!isExpanded" class="fas fa-chevron-down"></i>
 					<i v-if="isExpanded" class="fas fa-chevron-up"></i>
 				</div>
@@ -27,12 +27,12 @@
 		<div v-if="showSelectableList" class="d-flex flex-wrap border-top bg-black-5 pl-2 pt-2">
 			<div v-for="id in selectables" :key="id" class="mr-2 mb-2 c-pointer" v-on:click.prevent.stop="doSelect(id)">
 				<Badge class="shadow-sm"
-					:authorizable="ui.getAuthorizable(items.map[id])"
-					:item="ui.getItem(items.map[id])"
-					:icon="ui.getIcon(items.map[id])"
-					:label="ui.getLabel(items.map[id])"
+					:authorizable="ui.$getAuthorizable(objects.map[id])"
+					:item="ui.$getItem(objects.map[id])"
+					:icon="ui.$getIcon(objects.map[id])"
+					:label="ui.$getLabel(objects.map[id])"
 					:maxLabelWidth="maxLabelWidth">
-					<span v-if="multiple" class="text-small text-white-50 text-shadow"><i class="fas fa-plus"></i></span>
+					<span v-if="multiple" class="ml-2 text-small text-white-50 text-shadow"><i class="fas fa-plus"></i></span>
 				</Badge>
 			</div>
 			<div class="not-found p-2 text-small font-weight-semibold text-black-50 text-uppercase">No matching records found</div>
@@ -290,7 +290,7 @@ export default {
 				if (vm.selected.index.indexOf(id) != -1) {
 					continue;
 				}
-				if (!vm.ui.isMatched(vm.objects.map[id])) {
+				if (!vm.ui.$isMatched(vm.objects.map[id])) {
 					continue;
 				}
 				l.push(id);
@@ -298,7 +298,7 @@ export default {
 			l.sort(function(a, b) {
 				let ao = vm.objects.map[a];
 				let bo = vm.objects.map[b];
-				return vm.ui.comparator(ao, bo);
+				return vm.ui.$comparator(ao, bo);
 			});
 			return l;
 		},
@@ -330,7 +330,7 @@ export default {
 				vm.selected.index.push(id);
 				vm.selected.map[id] = vm.objects.map[id];
 			}
-			vm.ui.onChanged();
+			vm.ui.$onChanged();
 		},
 		doUnselect(id) {
 			let vm = this;
@@ -339,14 +339,14 @@ export default {
 				vm.selected.index.splice(i, 1);
 				delete vm.selected.map[id];
 			}
-			vm.ui.onChanged();
+			vm.ui.$onChanged();
 		},
 		doSearch() {
 			let vm = this;
 			if (!vm.hasSearch) {
 				return;
 			}
-			vm.ui.onSearch();
+			vm.ui.$onSearch();
 		},
 	}
 }
