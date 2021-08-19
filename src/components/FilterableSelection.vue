@@ -91,18 +91,14 @@ export default {
 		class UI {
 			constructor() {
 				this.$getIdentifier = function(o) {
-					if (typeof this.$getAuthorizable == 'function') {
-						const authorizable = this.$getAuthorizable(o);
-						if (authorizable) {
-							return authorizable.id;
-						}
+					const authorizable = this.$getAuthorizable(o);
+					if (authorizable) {
+						return authorizable.id;
 					}
 
-					if (typeof this.$getItem == 'function') {
-						const item = this.$getItem(o);
-						if (item) {
-							return item.path;
-						}
+					const item = this.$getItem(o);
+					if (item) {
+						return item.path;
 					}
 
 					return o;
@@ -117,18 +113,14 @@ export default {
 					return undefined;
 				};
 				this.$getLabel = function(o) {
-					if (typeof this.$getAuthorizable == 'function') {
-						const authorizable = this.$getAuthorizable(o);
-						if (authorizable) {
-							return undefined;
-						}
+					const authorizable = this.$getAuthorizable(o);
+					if (authorizable) {
+						return undefined;
 					}
 
-					if (typeof this.$getItem == 'function') {
-						const item = this.$getItem(o);
-						if (item) {
-							return undefined;
-						}
+					const item = this.$getItem(o);
+					if (item) {
+						return undefined;
 					}
 
 					return '' + o;
@@ -136,18 +128,14 @@ export default {
 				this.$comparator = function(a, b) {
 					const _this = this;
 					const _text = function(o) {
-						if (typeof _this.$getAuthorizable == 'function') {
-							const authorizable = _this.$getAuthorizable(o);
-							if (authorizable) {
-								return authorizable.fullName || authorizable.id;
-							}
+						const authorizable = _this.$getAuthorizable(o);
+						if (authorizable) {
+							return authorizable.fullName || authorizable.id;
 						}
 
-						if (typeof _this.$getItem == 'function') {
-							const item = _this.$getItem(o);
-							if (item) {
-								return item.name;
-							}
+						const item = _this.$getItem(o);
+						if (item) {
+							return item.name;
 						}
 
 						return '' + o;
