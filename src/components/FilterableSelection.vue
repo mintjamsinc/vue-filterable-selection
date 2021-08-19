@@ -1,3 +1,5 @@
+<!-- Copyright (c) 2021 MintJams Inc. Licensed under MIT License. -->
+
 <template>
 	<div class="position-relative flat-control flat-blue bordered rounded text-small">
 		<div v-if="selected.index.length > 0" class="d-flex flex-wrap pl-2 pt-2">
