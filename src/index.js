@@ -3,7 +3,7 @@
 import Vue from 'vue';
 import FilterableSelection from './components/FilterableSelection.vue';
 
-const version = '1.3.0';
+const version = '1.4.0';
 
 const compatible = (/^2\./).test(Vue.version);
 if (!compatible) {
