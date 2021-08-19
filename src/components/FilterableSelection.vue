@@ -1,5 +1,5 @@
 <template>
-	<div class="position-relative flat-control flat-blue bordered rounded text-small" :class="{'invalid': invalid}">
+	<div class="position-relative flat-control flat-blue bordered rounded text-small">
 		<div v-if="selected.index.length > 0" class="d-flex flex-wrap pl-2 pt-2">
 			<div v-for="id in selected.index" :key="id" class="mr-2 mb-2">
 				<Badge class="shadow-sm"
@@ -62,10 +62,6 @@ export default {
 			'default': true
 		},
 		'hasSearch': {
-			'type': Boolean,
-			'default': false
-		},
-		'invalid': {
 			'type': Boolean,
 			'default': false
 		},

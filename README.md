@@ -17,7 +17,7 @@ npm install --save-dev @mintjamsinc/vue-filterable-selection
   :multiple="true"
   :hasSearch="true"
   maxLabelWidth="10em"
-  :invalid="isDirty && $validator.hasErrors('editor', 'groups')"
+  :class="{'invalid': isDirty && $validator.hasErrors('editor', 'groups')}"
   v-hook="{inserted: onGroupsLoad}"/>
 ```
 
