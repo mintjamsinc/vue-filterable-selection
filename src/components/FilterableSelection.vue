@@ -8,7 +8,7 @@
 					:authorizable="ui.$getAuthorizable(selected.map[id])"
 					:item="ui.$getItem(selected.map[id])"
 					:icon="ui.$getIcon(selected.map[id])"
-					:identifier="ui.$getIdentifier(selected.map[id])"
+					:identifier="ui.$getImageIdentifier(selected.map[id])"
 					:image="ui.$getImage(selected.map[id])"
 					:lazyImage="ui.$getLazyImage(selected.map[id])"
 					:label="ui.$getLabel(selected.map[id])"
@@ -35,7 +35,7 @@
 					:authorizable="ui.$getAuthorizable(objects.map[id])"
 					:item="ui.$getItem(objects.map[id])"
 					:icon="ui.$getIcon(objects.map[id])"
-					:identifier="ui.$getIdentifier(selected.map[id])"
+					:identifier="ui.$getImageIdentifier(selected.map[id])"
 					:image="ui.$getImage(selected.map[id])"
 					:lazyImage="ui.$getLazyImage(selected.map[id])"
 					:label="ui.$getLabel(objects.map[id])"
@@ -118,7 +118,7 @@ export default {
 				this.$getIcon = function(/* o */) {
 					return undefined;
 				};
-				this.$getIdentifier = function(/* o */) {
+				this.$getImageIdentifier = function(/* o */) {
 					return undefined;
 				};
 				this.$getImage = function(/* o */) {
