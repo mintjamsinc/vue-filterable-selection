@@ -1,6 +1,6 @@
 {
   "name": "@mintjamsinc/vue-filterable-selection",
-  "version": "1.6.1",
+  "version": "1.6.2",
   "description": "A reusable FilterableSelection component for Vue.js 2.x used by webtop applications.",
   "main": "dist/bundle.common.js",
   "scripts": {

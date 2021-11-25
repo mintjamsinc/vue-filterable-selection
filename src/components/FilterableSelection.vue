@@ -265,6 +265,15 @@ export default {
 			set getIcon(f) {
 				this.$getIcon = f;
 			}
+			set getImageIdentifier(f) {
+				this.$getImageIdentifier = f;
+			}
+			set getImage(f) {
+				this.$getImage = f;
+			}
+			set getLazyImage(f) {
+				this.$getLazyImage = f;
+			}
 			set getLabel(f) {
 				this.$getLabel = f;
 			}
