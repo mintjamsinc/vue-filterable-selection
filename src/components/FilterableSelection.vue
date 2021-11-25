@@ -8,6 +8,9 @@
 					:authorizable="ui.$getAuthorizable(selected.map[id])"
 					:item="ui.$getItem(selected.map[id])"
 					:icon="ui.$getIcon(selected.map[id])"
+					:identifier="ui.$getIdentifier(selected.map[id])"
+					:image="ui.$getImage(selected.map[id])"
+					:lazyImage="ui.$getLazyImage(selected.map[id])"
 					:label="ui.$getLabel(selected.map[id])"
 					:maxLabelWidth="maxLabelWidth">
 					<span class="ml-2 text-small text-white-50 text-shadow c-pointer" v-on:click="doUnselect(id)"><i class="fas fa-times"></i></span>
@@ -32,6 +35,9 @@
 					:authorizable="ui.$getAuthorizable(objects.map[id])"
 					:item="ui.$getItem(objects.map[id])"
 					:icon="ui.$getIcon(objects.map[id])"
+					:identifier="ui.$getIdentifier(selected.map[id])"
+					:image="ui.$getImage(selected.map[id])"
+					:lazyImage="ui.$getLazyImage(selected.map[id])"
 					:label="ui.$getLabel(objects.map[id])"
 					:maxLabelWidth="maxLabelWidth">
 					<span v-if="multiple" class="ml-2 text-small text-white-50 text-shadow"><i class="fas fa-plus"></i></span>
@@ -110,6 +116,15 @@ export default {
 					return undefined;
 				};
 				this.$getIcon = function(/* o */) {
+					return undefined;
+				};
+				this.$getIdentifier = function(/* o */) {
+					return undefined;
+				};
+				this.$getImage = function(/* o */) {
+					return undefined;
+				};
+				this.$getLazyImage = function(/* o */) {
 					return undefined;
 				};
 				this.$getLabel = function(o) {
