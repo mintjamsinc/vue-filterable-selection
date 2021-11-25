@@ -35,9 +35,9 @@
 					:authorizable="ui.$getAuthorizable(objects.map[id])"
 					:item="ui.$getItem(objects.map[id])"
 					:icon="ui.$getIcon(objects.map[id])"
-					:identifier="ui.$getImageIdentifier(selected.map[id])"
-					:image="ui.$getImage(selected.map[id])"
-					:lazyImage="ui.$getLazyImage(selected.map[id])"
+					:identifier="ui.$getImageIdentifier(objects.map[id])"
+					:image="ui.$getImage(objects.map[id])"
+					:lazyImage="ui.$getLazyImage(objects.map[id])"
 					:label="ui.$getLabel(objects.map[id])"
 					:maxLabelWidth="maxLabelWidth">
 					<span v-if="multiple" class="ml-2 text-small text-white-50 text-shadow"><i class="fas fa-plus"></i></span>
