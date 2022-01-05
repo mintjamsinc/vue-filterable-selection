@@ -12,7 +12,8 @@
 					:image="ui.$getImage(selected.map[id])"
 					:lazyImage="ui.$getLazyImage(selected.map[id])"
 					:label="ui.$getLabel(selected.map[id])"
-					:maxLabelWidth="maxLabelWidth">
+					:maxLabelWidth="maxLabelWidth"
+					:title="ui.$getTooltip(selected.map[id])">
 					<span class="ml-2 text-small text-white-50 text-shadow c-pointer" v-on:click="doUnselect(id)"><i class="fas fa-times"></i></span>
 				</Badge>
 			</div>
@@ -39,7 +40,8 @@
 					:image="ui.$getImage(objects.map[id])"
 					:lazyImage="ui.$getLazyImage(objects.map[id])"
 					:label="ui.$getLabel(objects.map[id])"
-					:maxLabelWidth="maxLabelWidth">
+					:maxLabelWidth="maxLabelWidth"
+					:title="ui.$getTooltip(objects.map[id])">
 					<span v-if="multiple" class="ml-2 text-small text-white-50 text-shadow"><i class="fas fa-plus"></i></span>
 				</Badge>
 			</div>
@@ -139,6 +141,9 @@ export default {
 					}
 
 					return '' + o;
+				};
+				this.$getTooltip = function(/* o */) {
+					return '';
 				};
 				this.$comparator = function(a, b) {
 					const _this = this;
@@ -276,6 +281,9 @@ export default {
 			}
 			set getLabel(f) {
 				this.$getLabel = f;
+			}
+			set getTooltip(f) {
+				this.$getTooltip = f;
 			}
 			set comparator(f) {
 				this.$comparator = f;
